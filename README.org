@@ -3,18 +3,190 @@
 #+AUTHOR: Philipp Uhl
 
 
+@apparts/web-components gives you some standard web components for
+forms, inputs and in general. They are lightweight, some are for
+making the use of Formik easier and more standardized.
+
 * Components
 
-- Button
-- SubmitButton
-- Input
-- ErrorMessage
-- Formik
+- General purpose:
+  - Button
+  - Input
+  - ErrorMessage
+  - FadeIn
+
+
+- Formik specific:
   - If
   - IfElse
   - Row
   - GlobalError
   - IfDirty
   - FormikInput
-- FadeIn
-- FileInput
+  
+** Button
+
+The button component has all usual button props and these:
+- ~submit: <?boolean>~ :: Type should be "submit"
+- ~loading: <?boolean>~ :: The button should be disabled and show a
+  loading animation
+- ~disabled: <?boolean>~ :: The button should be disabled
+
+** Input
+
+The input component has all usual input props and these:
+- ~label: <string>~ :: The inputs label text
+- ~name: <string>~ :: The inputs name and id
+- ~error: <?string>~ :: An error text that should be shown
+
+** ErrorMessage
+
+A styled error message that only renders if the ~message~ prop is
+given. Props:
+- ~message: <?string>~ :: The message that should be rendered
+
+** FadeIn
+
+A component that fades it's content in, on render. Props:
+- ~shown: <?bool>~ :: The content should be visible
+- ~children: <node>~ :: The content
+- ~min: <?number> = 0~ :: The opacity when invisible
+- ~max: <?number> = 1~ :: The opacity when visible
+- ~duration: <?number> = 1~ :: The duration of the fade in in seconds
+- ~style: <?object>~ :: A style for the wrapper
+
+** If
+
+Formik specific component. Render children, if some condition is true
+in the Formik input values. Props:
+
+- ~children: <nodes>~ :: The children to be rendered
+- ~test: <function>~ :: The test function, it will be given the values
+  from the formik context as parameter. If it returns true, the
+  content will be rendered.
+
+
+** IfElse
+
+Formik specific component. Render children, if some condition is true
+in the Formik input values. Props:
+
+- ~then: <nodes>~ :: The children to be rendered if condition met
+- ~elze: <nodes>~ :: The children to be rendered if condition not met
+- ~test: <function>~ :: The test function, it will be given the values
+  from the formik context as parameter. If it returns true, the ~then~
+  part will be rendered, if returns false, the ~elze~ part will be rendered.
+
+** Row
+
+Formik specific component. Renders inputs in a row that wraps at a
+specifiable width. Props:
+
+- ~children: <node>~ :: The content to be rendered in a row
+- ~minWidth: <?number> = 200~ :: The minium width of the items
+- ~margin: <?number> = 5~ :: The margin between the children
+- ~containerStyle: <?object>~ :: Style of the container
+- ~rowStyle: <?object>~ :: Style for each element
+
+
+** GlobalError
+
+Formik specific component. Renders an error if any field of the form has
+an error. Useful, e.g. to display a warning near the submit button
+that explains, that there is an issue present. Props:
+
+- ~message: <string>~ :: The message to be rendered.
+
+** IfDirty
+
+Formik specific component. Renders it's content, only if the formik form
+is dirty. Useful, e.g., to display a react-routes prompt when leaving
+a page, but only if the user has unsaved input. Takes no props.
+
+To prevent the form to be dirty after submitting, you can use this
+line in your =onSubmit= handler function:
+
+#+BEGIN_SRC js
+const onSubmit = (fields, actions) => {
+  // do the saving, etc. Then, on success:
+  actions.resetForm({ values: fields });
+};
+#+END_SRC
+
+** FormikInput
+
+Formik specific component. An input field with an error field and a
+label.
+
+The FormikInput component has all usual (formik) input props and these:
+- ~label: <string>~ :: The inputs label text
+- ~name: <string>~ :: The inputs name and id
+
+* Usage
+
+Import the default style, or create your own style based on the
+default one.
+
+#+BEGIN_SRC js
+// The default style:
+import "@apparts/web-components/style.css";
+#+END_SRC
+
+To keep the given style sheet but alter the color scheme, just
+redefine these CSS variables with your color scheme:
+
+#+BEGIN_SRC css
+:root {
+  --dark-0: #0c0e0e;
+  --dark-1: #23292a;
+  --dark-2: #394546;
+  --dark-3: #516062;
+  --dark-4: #677b7e;
+
+  --bright-0: #d8dedf;
+  --bright-1: #e1e6e6;
+  --bright-2: #eaedee;
+  --bright-3: #f3f5f5;
+  --bright-4: #fcfdfd;
+
+  --primary-0: #144a52;
+  --primary-1: #1b636d;
+  --primary-2: #227c88;
+  --primary-3: #2995a3;
+  --primary-4: #30aebe;
+  --primary-5: #41bfcf;
+  --primary-6: #5cc8d6;
+  --primary-7: #77d1dd;
+  --primary-8: #92dae4;
+  --primary-9: #ade3eb;
+
+  --secondary-0: #521c14;
+  --secondary-1: #6d251b;
+  --secondary-2: #882e22;
+  --secondary-3: #a33729;
+  --secondary-4: #be4030;
+  --secondary-5: #cf5141;
+  --secondary-6: #d66a5c;
+  --secondary-7: #dd8377;
+  --secondary-8: #e49c92;
+  --secondary-9: #ebb5ad;
+
+  --green-0: #145214;
+  --green-1: #248f24;
+  --green-2: #33cc33;
+  --green-3: #70db70;
+  --green-4: #adebad;
+
+  --yellow-0: #525214;
+  --yellow-1: #8f8f24;
+  --yellow-2: #cccc33;
+  --yellow-3: #dbdb70;
+  --yellow-4: #ebebad;
+
+  --red-0: #521414;
+  --red-1: #8f2424;
+  --red-2: #cc3333;
+  --red-3: #db7070;
+  --red-4: #ebadad;
+}
+#+END_SRC

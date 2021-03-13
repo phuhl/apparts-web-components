@@ -7,8 +7,8 @@ const If = ({ children, test }) => {
   return <>{test(values) ? children : null}</>;
 };
 If.propTypes = {
-  test: PropTypes.func,
-  children: PropTypes.node
+  test: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 const IfElse = ({ then, elze, test }) => {
@@ -16,9 +16,9 @@ const IfElse = ({ then, elze, test }) => {
   return <>{test(values) ? then : elze}</>;
 };
 IfElse.propTypes = {
-  then: PropTypes.node,
-  elze: PropTypes.node,
-  test: PropTypes.func
+  then: PropTypes.node.isRequired,
+  elze: PropTypes.node.isRequired,
+  test: PropTypes.func.isRequired,
 };
 
-export {If, IfElse};
+export { If, IfElse };
