@@ -10,7 +10,8 @@
     "buildWatch": "rollup -c -w"
   },
   "files": [
-    "dist"
+    "dist",
+    "style.css"
   ],
   "author": "Philipp Uhl",
   "license": "ISC",

@@ -1,0 +1,171 @@
+:root {
+  --dark-0: #0c0e0e;
+  --dark-1: #23292a;
+  --dark-2: #394546;
+  --dark-3: #516062;
+  --dark-4: #677b7e;
+
+  --bright-0: #d8dedf;
+  --bright-1: #e1e6e6;
+  --bright-2: #eaedee;
+  --bright-3: #f3f5f5;
+  --bright-4: #fcfdfd;
+
+  --primary-0: #144a52;
+  --primary-1: #1b636d;
+  --primary-2: #227c88;
+  --primary-3: #2995a3;
+  --primary-4: #30aebe;
+  --primary-5: #41bfcf;
+  --primary-6: #5cc8d6;
+  --primary-7: #77d1dd;
+  --primary-8: #92dae4;
+  --primary-9: #ade3eb;
+
+  --secondary-0: #521c14;
+  --secondary-1: #6d251b;
+  --secondary-2: #882e22;
+  --secondary-3: #a33729;
+  --secondary-4: #be4030;
+  --secondary-5: #cf5141;
+  --secondary-6: #d66a5c;
+  --secondary-7: #dd8377;
+  --secondary-8: #e49c92;
+  --secondary-9: #ebb5ad;
+
+  --green-0: #145214;
+  --green-1: #248f24;
+  --green-2: #33cc33;
+  --green-3: #70db70;
+  --green-4: #adebad;
+
+  --yellow-0: #525214;
+  --yellow-1: #8f8f24;
+  --yellow-2: #cccc33;
+  --yellow-3: #dbdb70;
+  --yellow-4: #ebebad;
+
+  --red-0: #521414;
+  --red-1: #8f2424;
+  --red-2: #cc3333;
+  --red-3: #db7070;
+  --red-4: #ebadad;
+}
+
+html {
+  font-family: sans-serif;
+  background: var(--bright-3);
+}
+
+.errorMessage {
+  padding: 10px 10px 0px 10px;
+  color: var(--red-2);
+  width: auto;
+}
+
+.inputField {
+  padding: 10px 0px;
+}
+
+.inputField label:before {
+  background: var(--bright-4);
+  margin-bottom: -10px;
+  margin-left: -5px;
+  z-index: 1;
+  content: "";
+  display: block;
+  width: calc(10px + 100%);
+  height: 2px;
+}
+.inputField label {
+  position: relative;
+  display: block;
+  z-index: 5;
+  top: 20px;
+  left: 20px;
+  width: min-content;
+  padding: 0px 10px;
+  color: var(--dark-2);
+}
+
+.inputField input {
+  z-index: 1;
+  resize: none;
+  width: calc(100% - 30px);
+  border: 1px solid var(--dark-3);
+  border-radius: 15px;
+  background: var(--bright-4);
+  padding: 15px;
+  margin-top: 10px;
+  color: var(--dark-2);
+  line-height: 28px;
+  background: "white";
+  outline: none;
+}
+
+.inputField input:focus {
+  border: 1px solid var(--primary-4);
+}
+
+.login .submit {
+  width: 100%;
+}
+
+.button {
+  background-color: var(--primary-5);
+  width: 100%;
+  color: var(--bright-4);
+  font-size: 16px;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  line-height: 26px;
+}
+
+.button.loading {
+  color: transparent;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(60deg);
+  }
+  to {
+    transform: rotate(420deg);
+  }
+}
+
+.button.loading:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: calc(50% - 10px);
+  margin-bottom: -25px;
+  border-radius: 20px;
+  border-left: 3px solid var(--bright-2);
+  border-right: 3px solid var(--bright-2);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.48, 0.28, 0.54, 0.87);
+}
+
+.submitButton:disabled,
+.button:disabled {
+  background-color: var(--dark-4);
+}
+
+.login .pwForgotten {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+a {
+  color: var(--primary-4);
+}
