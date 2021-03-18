@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Components for web applications",
   "main": "dist/index.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "react-scripts test",
     "clean": "rm -rf lib dist",
