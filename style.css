@@ -79,11 +79,10 @@ html {
 }
 .inputField label {
   position: relative;
-  display: block;
+  display: inline-block;
   z-index: 5;
   top: 20px;
   left: 20px;
-  width: min-content;
   padding: 0px 10px;
   color: var(--dark-2);
 }
