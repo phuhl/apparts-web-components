@@ -206,8 +206,8 @@ var If = function If(_ref) {
 };
 
 If.propTypes = {
-  test: PropTypes.func,
-  children: PropTypes.node
+  test: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 var IfElse = function IfElse(_ref2) {
@@ -222,9 +222,9 @@ var IfElse = function IfElse(_ref2) {
 };
 
 IfElse.propTypes = {
-  then: PropTypes.node,
-  elze: PropTypes.node,
-  test: PropTypes.func
+  then: PropTypes.node.isRequired,
+  elze: PropTypes.node.isRequired,
+  test: PropTypes.func.isRequired
 };
 
 var GlobalError = function GlobalError(_ref) {
