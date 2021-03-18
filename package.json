@@ -6,9 +6,11 @@
   "module": "src/index.js",
   "scripts": {
     "test": "react-scripts test",
+    "testOnce": "react-scripts test --watchAll=false",
     "clean": "rm -rf lib dist",
     "build": "rollup -c",
-    "buildWatch": "rollup -c -w"
+    "buildWatch": "rollup -c -w",
+    "prepublishOnly": "npm run testOnce && npm run build"
   },
   "files": [
     "dist",
