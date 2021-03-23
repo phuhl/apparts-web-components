@@ -1,6 +1,6 @@
 {
   "name": "@apparts/web-components",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Components for web applications",
   "main": "dist/index.js",
   "module": "src/index.js",
