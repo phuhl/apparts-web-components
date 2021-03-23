@@ -113,10 +113,12 @@ var Button = function Button(_ref) {
   var submit = _ref.submit,
       loading = _ref.loading,
       disabled = _ref.disabled,
-      props = _objectWithoutProperties(_ref, ["submit", "loading", "disabled"]);
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? "" : _ref$className,
+      props = _objectWithoutProperties(_ref, ["submit", "loading", "disabled", "className"]);
 
   return /*#__PURE__*/React.createElement("button", _extends({
-    className: (loading ? "loading " : "") + (submit ? "submit " : "") + "button"
+    className: (loading ? "loading " : "") + (submit ? "submit " : "") + "button " + className
   }, props, {
     disabled: loading || disabled,
     type: submit && "submit"
@@ -126,7 +128,8 @@ var Button = function Button(_ref) {
 Button.propTypes = {
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
-  submit: PropTypes.bool
+  submit: PropTypes.bool,
+  className: PropTypes.string
 };
 
 var ErrorMessage = function ErrorMessage(_ref) {
